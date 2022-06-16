@@ -21,12 +21,6 @@ jobs:
               `https?:\\/\\/((github\\.com\\/${user}\\/[^/]+\\/?[\\s\\n]+)|(snack\\.expo\\.dev\\/.+))`,
               'gm'
             );
-            if (regex.test(body)) {
-              await github.issues.addLabels({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                labels: ['repro provided'],
               });
               try {
                 await github.issues.removeLabel({
